@@ -126,10 +126,10 @@ CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py  --traindata_path <train_da
 
 ***********************************************************
 
-CUDA_VISIBLE_DEVICES=0 python inference.py
+<!-- CUDA_VISIBLE_DEVICES=0 python inference.py
 CUDA_VISIBLE_DEVICES=0 nohup python prune_distill_step1.py &>> record/vitb_step1_50.txt &
 CUDA_VISIBLE_DEVICES=1 nohup python prune_distill_step2.py &>> record/vitb_step2_50.txt &
-CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py --trainsize 8 --testsize 1 --gradsize 10 --epochs 3
+CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py --trainsize 8 --testsize 1 --gradsize 10 --epochs 3 -->
 
 
 

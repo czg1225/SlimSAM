@@ -71,7 +71,7 @@ def test_model():
     print("CUDA Device Name: " + str(torch.cuda.get_device_name(device)))
 
     # teacher_model_type = 'vit_h'
-    # checkpoint = '/home/chenzigeng/SAM/segment-anything/checkpoints/sam_vit_h_qkv.pth'
+    # checkpoint = 'checkpoints/sam_vit_h_qkv.pth'
     # teacher_model = sam_model_registry[teacher_model_type](checkpoint=checkpoint)
     # teacher_model.to(device)
     # teacher_model.eval()
