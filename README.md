@@ -108,20 +108,16 @@ First download a [SAM-B model](https://drive.google.com/file/d/1CtcyOm4h9bXgBF8D
 The model after step1 is saved as 'checkpoints/vit_b_slim_step1_.pth'
 
 ```
-CUDA_VISIBLE_DEVICES=0 python prune_distill_step1.py  --traindata_path <train_data_root> --testdata_path <test_data_root> --prune_ratio <pruning ratio> --epochs <training epochs>
+CUDA_VISIBLE_DEVICES=0 python prune_distill_step1.py  --traindata_path <train_data_root> --valdata_path <val_data_root> --prune_ratio <pruning ratio> --epochs <training epochs>
 ```
 
 ### Step2: Bottleneck Pruning + Embedding Aligning ###
 The model after step2 is saved as 'checkpoints/vit_b_slim_step2_.pth'
 
 ```
-CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py  --traindata_path <train_data_root> --testdata_path <test_data_root> --prune_ratio <pruning ratio> --epochs <training epochs> --model_path 'checkpoints/vit_b_slim_step1_.pth' 
+CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py  --traindata_path <train_data_root> --valdata_path <val_data_root> --prune_ratio <pruning ratio> --epochs <training epochs> --model_path 'checkpoints/vit_b_slim_step1_.pth' 
 
 ```
-
-
-
-
 
 
 ***********************************************************
@@ -129,7 +125,7 @@ CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py  --traindata_path <train_da
 <!-- CUDA_VISIBLE_DEVICES=0 python inference.py
 CUDA_VISIBLE_DEVICES=0 nohup python prune_distill_step1.py &>> record/vitb_step1_50.txt &
 CUDA_VISIBLE_DEVICES=1 nohup python prune_distill_step2.py &>> record/vitb_step2_50.txt &
-CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py --trainsize 8 --testsize 1 --gradsize 10 --epochs 3 -->
+CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py --trainsize 8 --valsize 1 --gradsize 10 --epochs 3 -->
 
 
 

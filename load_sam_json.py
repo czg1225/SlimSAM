@@ -18,8 +18,8 @@ import json
 
 
 class SamDataset(Dataset):
-    def __init__(self, root_folder: str, dataset_size, test=False):
-        self.test = test
+    def __init__(self, root_folder: str, dataset_size, val=False):
+        self.val = val
         self.dataset_size = dataset_size
         self._root_folder = root_folder
         self._image_paths = sorted(glob.glob(osp.join(root_folder, "*.jpg")))
@@ -33,14 +33,14 @@ class SamDataset(Dataset):
 
     def __getitem__(self, index):
 
-        if not self.test: 
-            image = cv2.imread(self._image_paths[index+1000])
-        elif self.test:
+        if not self.val: 
+            image = cv2.imread(self._image_paths[index])
+        elif self.val:
             image = cv2.imread(self._image_paths[index])
         
-        if not self.test: 
+        if not self.val: 
             annot = self._json_paths[index+1000]
-        elif self.test:
+        elif self.val:
             annot = self._json_paths[index]
 
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -53,9 +53,9 @@ class SamDataset(Dataset):
         input_size = tuple(transformed_image.shape[-2:])
 
 
-        if not self.test:
+        if not self.val:
             return {
-            "id": self._image_paths[index+1000],
+            "id": self._image_paths[index],
             "input_image": input_image,
             "input_size":input_size,
             "original_image_size":original_image_size,

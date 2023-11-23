@@ -24,10 +24,10 @@ torch.cuda.manual_seed_all(seed)
 
 parser = argparse.ArgumentParser(description='SlimSAM')
 parser.add_argument('--traindata_path', type=str,default = '')
-parser.add_argument('--testdata_path', type=str,default = '')
+parser.add_argument('--valdata_path', type=str,default = '')
 parser.add_argument('--trainsize', type=int,default = 10000)
 parser.add_argument('--gradsize', type=int,default = 1000)
-parser.add_argument('--testsize', type=int,default = 50)
+parser.add_argument('--valsize', type=int,default = 50)
 parser.add_argument('--epochs', type=int,default = 20)
 parser.add_argument('--norm_type', type=str,default = 'mean')
 parser.add_argument('--imptype', type=str,default = 'Disturb')
@@ -43,25 +43,25 @@ def train_model():
     print("CUDA Device Name: " + str(torch.cuda.get_device_name(device)))
 
     train_root_folder = args.traindata_path
-    test_root_folder = args.testdata_path
+    val_root_folder = args.valdata_path
     TRAIN_SIZE = args.trainsize
-    TEST_SIZE = args.testsize
+    VAL_SIZE = args.valsize
     GRAD_SIZE = args.gradsize
     num_train_epochs = args.epochs
     
     # Creating dataset loaders
     batch_size = 1
 
-    grad_dataset = SamDataset(root_folder=train_root_folder, dataset_size=GRAD_SIZE, test=False)
+    grad_dataset = SamDataset(root_folder=train_root_folder, dataset_size=GRAD_SIZE, val=False)
     grad_loader = DataLoader(dataset=grad_dataset, batch_size=1, shuffle=False, num_workers=4,
                               pin_memory=True, drop_last=True)
 
-    train_dataset = SamDataset(root_folder=train_root_folder, dataset_size=TRAIN_SIZE, test=False)
+    train_dataset = SamDataset(root_folder=train_root_folder, dataset_size=TRAIN_SIZE, val=False)
     train_loader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=4,
                               pin_memory=True, drop_last=True)
 
-    test_dataset = SamDataset(root_folder=test_root_folder, dataset_size=TEST_SIZE, test=True)
-    test_loader = DataLoader(dataset=test_dataset, batch_size=1, shuffle=False, num_workers=2,
+    val_dataset = SamDataset(root_folder=val_root_folder, dataset_size=VAL_SIZE, val=True)
+    val_loader = DataLoader(dataset=val_dataset, batch_size=1, shuffle=False, num_workers=2,
                              pin_memory=True, drop_last=False)
 
     # student model
@@ -99,7 +99,7 @@ def train_model():
     print("learning rate:",lr)
     print("a_weight:",a_weight)
     print("round_to",round_to)
-    print("TRAIN_SIZE",TRAIN_SIZE,"TEST_SIZE",TEST_SIZE, "GRAD_SIZE",GRAD_SIZE,"Epochs",num_train_epochs)
+    print("TRAIN_SIZE",TRAIN_SIZE,"VAL_SIZE",VAL_SIZE, "GRAD_SIZE",GRAD_SIZE,"Epochs",num_train_epochs)
 
     model_name = teacher_model_type
     example_inputs = torch.randn(1, 3, 1024, 1024)
@@ -177,9 +177,9 @@ def train_model():
                     iou = 0
                     model.image_encoder.eval()
                     with torch.no_grad():
-                        test_iter = iter(test_loader)
-                        for j in range(len(test_iter)):
-                            batch = next(test_iter)
+                        val_iter = iter(val_loader)
+                        for j in range(len(val_iter)):
+                            batch = next(val_iter)
 
                             input_image = batch["input_image"].to(device)
                             input_size = batch["input_size"]
@@ -241,7 +241,7 @@ def train_model():
                             iou += sub_iou
 
                     
-                    iou = iou/len(test_iter)
+                    iou = iou/len(val_iter)
                     model.image_encoder.train()
 
                     model.image_encoder.eval()
