@@ -10,7 +10,7 @@
 > Paper: [[Arxiv]](https://arxiv.org/abs/2312.00858)
 
 ### Updates
-* **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
+* 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
 
 ## Introduction
 
