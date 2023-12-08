@@ -107,7 +107,7 @@ def train_model():
 
 
     for k in range(1):
-        ############################################get initial grad############################################
+############################################get initial grad for importance estimation############################################
         best_iou = 0
         model.to(device)
         model.image_encoder.train()
@@ -135,7 +135,7 @@ def train_model():
         model.image_encoder = prune_sam_step1(model=model.image_encoder, example_inputs=example_inputs, model_name=model_name, round_to=round_to, ratio=ratio, imptype = imptype, norm_type=norm_type, global_way=global_way)
         model = get_pos_init(model)
         model.to(device)
-        # print(model.image_encoder)
+ 
         model.image_encoder = torch.nn.DataParallel(model.image_encoder)
         model.image_encoder.train()
         optimizer = torch.optim.Adam(model.image_encoder.parameters(), lr=lr)
@@ -167,12 +167,12 @@ def train_model():
                     loss = loss_fn(student_embedding, teacher_embedding)
                     loss.backward()               
 
-
+                #### batchsize×4 ####
                 if i%4==3:
                     optimizer.step()
                     optimizer.zero_grad()
                 
-
+                #validation
                 if i == len(train_iter)-1:
                     iou = 0
                     model.image_encoder.eval()
@@ -217,7 +217,7 @@ def train_model():
                                     coords_torch, labels_torch = coords_torch[None, :, :], labels_torch[None, :]
                                     points = (coords_torch, labels_torch)
 
-                                    # Teacher inference
+                                    # Model inference
                                     image_embedding,_,_,_,_ = model.image_encoder(input_image)
                                     sparse_embeddings, dense_embeddings = model.prompt_encoder(
                                         points=points,
@@ -256,7 +256,7 @@ def train_model():
                     print("epoch:",epoch)
                     print("IOU: {} Best IOU {}".format(iou,best_iou))
 
-        model.image_encoder = model.image_encoder.module
+        
         
 
 

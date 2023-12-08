@@ -171,7 +171,7 @@ def prune_sam_step1(model, example_inputs, model_name, round_to, ratio,imptype,n
 
 
 
-def prune_sam_step2(model, example_inputs, model_name, round_to, ratio,imptype,norm_type,global_way):
+def prune_sam_step2_local(model, example_inputs, model_name, round_to, ratio,imptype,norm_type,global_way):
 
     ignored_layers = []
 
