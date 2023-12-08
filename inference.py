@@ -128,7 +128,7 @@ def test_model():
 
         
 ################ Point Prompt ################
-        input_point = np.array([[800, 750]])
+        input_point = np.array([[750, 370]])
         input_label = np.array([1])
         masks, scores, logits = predictor.predict(
         point_coords=input_point,
@@ -146,7 +146,7 @@ def test_model():
 
 
 ################ Box Prompt ################
-        input_box = np.array([100, 100,1600, 500])
+        input_box = np.array([75, 275, 1725, 850])
         masks, scores, logits = predictor.predict(
         point_coords=None,
         point_labels=None,
