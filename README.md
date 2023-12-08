@@ -9,6 +9,8 @@
 > [Learning and Vision Lab](http://lv-nus.org/), National University of Singapore  
 > Paper: [[Arxiv]](https://arxiv.org/abs/2312.00858)
 
+### Updates
+* **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
 
 ## Introduction
 
@@ -173,6 +175,12 @@ CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py  --traindata_path <train_da
 
 ```
 
+## BibTex of our SlimSAM
+If you use SlimSAM in your research, please use the following BibTeX entry. Thank you!
+
+```bibtex
+
+```
 
 ## Acknowledgement
 
