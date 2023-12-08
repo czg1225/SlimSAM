@@ -1,8 +1,9 @@
 import numpy as np
 import cv2
 import torch
+import torch.nn as nn
 from segment_anything import SamPredictor, sam_model_registry, SamAutomaticMaskGenerator
-from segment_anything_kd.modeling.image_encoder import Attention
+from segment_anything_kd.modeling.image_encoder import add_decomposed_rel_pos
 import matplotlib.pyplot as plt
 import torch_pruning as tp
 
@@ -70,8 +71,8 @@ def test_model():
     print("CUDA visible devices: " + str(torch.cuda.device_count()))
     print("CUDA Device Name: " + str(torch.cuda.get_device_name(device)))
 
-    # teacher_model_type = 'vit_h'
-    # checkpoint = 'checkpoints/sam_vit_h_qkv.pth'
+    # teacher_model_type = 'vit_b'
+    # checkpoint = 'checkpoints/sam_vit_b_qkv.pth'
     # teacher_model = sam_model_registry[teacher_model_type](checkpoint=checkpoint)
     # teacher_model.to(device)
     # teacher_model.eval()
