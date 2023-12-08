@@ -29,7 +29,7 @@ Qualitative comparison of results obtained using point prompts, box prompts, and
 
 ### Segment everything prompts
 <div align="center">
-  <img src="images/paper/everything.PNG" width="100%">
+  <img src="images/paper/everything2.PNG" width="100%">
 </div>
 
 ### Box Prompts and Point Prompts
