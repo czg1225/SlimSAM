@@ -1,8 +1,8 @@
 # SlimSAM: 0.1% Data Makes Segment Anything Slim
 
 <div align="center">
-<img src="images/paper/title.PNG" width="60%">
 <img src="images/paper/intro.PNG" width="50%">
+<img src="images/paper/everything.PNG" width="100%">
 <img src="images/paper/process.PNG" width="100%">
 </div>
 <!-- ![Intro](images/paper/intro.PNG?raw=true) -->
