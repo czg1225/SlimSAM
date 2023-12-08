@@ -23,8 +23,19 @@
 
 SlimSAM achieves approaching performance while reducing the parameter counts to **0.9\% (5.7M)**, MACs to **0.8\% (21G)**, and requiring mere **0.1\% (10k)** of the training data when compared to the original SAM-H. Extensive experiments demonstrate that our method realize significant superior performance while utilizing over **10 times** less training data when compared to other SAM compression methods.
 
+## Visualization Results
 
+Qualitative comparison of results obtained using point prompts, box prompts, and segment everything prompts are shown in the following section.
 
+### Segment everything prompts
+<div align="center">
+  <img src="images/paper/everything.PNG" width="100%">
+</div>
+
+### Box Prompts and Point Prompts
+<div align="center">
+  <img src="images/paper/prompt.PNG" width="100%">
+</div>
 
 ## Installation
 
