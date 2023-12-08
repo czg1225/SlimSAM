@@ -72,6 +72,20 @@ pip install opencv-python pycocotools matplotlib
 ## Dataset
 We use the original SA-1B dataset in our code. See [here](https://ai.facebook.com/datasets/segment-anything/) for an overview of the datastet. The dataset can be downloaded [here](https://ai.facebook.com/datasets/segment-anything-downloads/).
 
+The download dataset should be saved as:
+
+```
+<train_data_root>/
+      sa_xxxxxxx.jpg
+      sa_xxxxxxx.json
+      ......
+<val_data_root>/
+      sa_xxxxxxx.jpg
+      sa_xxxxxxx.json
+      ......
+
+```
+
 
 To decode a mask in COCO RLE format into binary:
 
@@ -161,17 +175,53 @@ CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py  --traindata_path <train_da
 ```
 
 
+## Acknowledgement
+
+<details>
+<summary>
+<a href="https://github.com/facebookresearch/segment-anything">SAM</a> (Segment Anything) [<b>bib</b>]
+</summary>
+
+```bibtex
+@article{kirillov2023segany,
+  title={Segment Anything}, 
+  author={Kirillov, Alexander and Mintun, Eric and Ravi, Nikhila and Mao, Hanzi and Rolland, Chloe and Gustafson, Laura and Xiao, Tete and Whitehead, Spencer and Berg, Alexander C. and Lo, Wan-Yen and Doll{\'a}r, Piotr and Girshick, Ross},
+  journal={arXiv:2304.02643},
+  year={2023}
+}
+```
+</details>
+
+
+
+<details>
+<summary>
+<a href="https://github.com/VainF/Torch-Pruning">Torch Pruning</a> (DepGraph: Towards Any Structural Pruning) [<b>bib</b>]
+</summary>
+
+```bibtex
+@inproceedings{fang2023depgraph,
+  title={Depgraph: Towards any structural pruning},
+  author={Fang, Gongfan and Ma, Xinyin and Song, Mingli and Mi, Michael Bi and Wang, Xinchao},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={16091--16101},
+  year={2023}
+}
+```
+</details>
+
+
 ***********************************************************
 
 <!-- CUDA_VISIBLE_DEVICES=0 python inference.py
 CUDA_VISIBLE_DEVICES=0 nohup python prune_distill_step1.py &>> record/vitb_step1_50.txt &
 CUDA_VISIBLE_DEVICES=1 nohup python prune_distill_step2.py &>> record/vitb_step2_50.txt &
 CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py --trainsize 8 --valsize 1 --gradsize 10 --epochs 3 -->
-CUDA_VISIBLE_DEVICES=1 nohup python predict2.py &>> record/predict77_box.txt &
+<!-- CUDA_VISIBLE_DEVICES=1 nohup python predict2.py &>> record/predict77_box.txt &
 CUDA_VISIBLE_DEVICES=0 nohup python predict2.py &>> record/predict50_box.txt &
 CUDA_VISIBLE_DEVICES=1 nohup python predict2.py &>> record/vitb_box.txt &
 CUDA_VISIBLE_DEVICES=1 nohup python predict3.py &>> record/predictmob_box.txt &
-CUDA_VISIBLE_DEVICES=1 python predict3.py
+CUDA_VISIBLE_DEVICES=1 python predict3.py -->
 
 
 
