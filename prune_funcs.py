@@ -1,22 +1,14 @@
 import numpy as np
-import cv2
-from torch.utils.data import DataLoader
-from torchvision import transforms
-from torch.optim import Adam
-from torch.nn import L1Loss
 import torch
 import torch.nn as nn
 import random
 from segment_anything_kd import SamPredictor, sam_model_registry
 from segment_anything_kd.modeling.image_encoder import Attention
-from load_sam3 import SamDataset
 from statistics import mean
 from torch.nn.functional import threshold, normalize
-from segment_anything_kd.utils.transforms import ResizeLongestSide
-from tqdm import tqdm
 from segment_anything_kd.modeling.common import LayerNorm2d
 import torch_pruning as tp
-import copy
+
 
 seed = 0
 np.random.seed(seed)
