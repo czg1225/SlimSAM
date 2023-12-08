@@ -1,6 +1,7 @@
 # SlimSAM: 0.1% Data Makes Segment Anything Slim
 
 <div align="center">
+<img src="images/paper/title.png" width="90%">
 <img src="images/paper/intro.PNG" width="50%">
 <img src="images/paper/process.PNG" width="100%">
 </div>
@@ -48,7 +49,12 @@ See [here](https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocoto
 
 ## <a name="Models"></a>Model Checkpoints
 
-The base model of our method is available. To enhance collaboration with our dependency dectection algorithm, we have broken down the original image encoder's qkv layer into three distinct linear layers: q, k, and v.
+The base model of our method is available. To enhance collaboration with our dependency dectection algorithm, we have split the original image encoder's qkv layer into three distinct linear layers: q, k, and v.
+<div align="center">
+<img src="images/paper/split.PNG" width="70%">
+</div>
+
+
 
 Click the links below to download the checkpoints of orginal SAM-B.
 
@@ -125,8 +131,11 @@ CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py  --traindata_path <train_da
 CUDA_VISIBLE_DEVICES=0 nohup python prune_distill_step1.py &>> record/vitb_step1_50.txt &
 CUDA_VISIBLE_DEVICES=1 nohup python prune_distill_step2.py &>> record/vitb_step2_50.txt &
 CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py --trainsize 8 --valsize 1 --gradsize 10 --epochs 3 -->
-
-
+CUDA_VISIBLE_DEVICES=1 nohup python predict2.py &>> record/predict77_box.txt &
+CUDA_VISIBLE_DEVICES=0 nohup python predict2.py &>> record/predict50_box.txt &
+CUDA_VISIBLE_DEVICES=1 nohup python predict2.py &>> record/vitb_box.txt &
+CUDA_VISIBLE_DEVICES=1 nohup python predict3.py &>> record/predictmob_box.txt &
+CUDA_VISIBLE_DEVICES=1 python predict3.py
 
 
 
