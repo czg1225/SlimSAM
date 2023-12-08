@@ -12,7 +12,7 @@
 ## Introduction
 
 <div align="center">
-<img src="images/paper/intro.PNG" width="50%">
+<img src="images/paper/intro.PNG" width="70%">
 <img src="images/paper/process.PNG" width="100%">
 </div>
 <!-- ![Intro](images/paper/intro.PNG?raw=true) -->
