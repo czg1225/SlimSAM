@@ -27,7 +27,7 @@ SlimSAM achieves approaching performance while reducing the parameter counts to 
 
 Qualitative comparison of results obtained using point prompts, box prompts, and segment everything prompts are shown in the following section.
 
-### Segment everything prompts
+### Segment Everything Prompts
 <div align="center">
   <img src="images/paper/everything2.PNG" width="100%">
 </div>
@@ -35,6 +35,21 @@ Qualitative comparison of results obtained using point prompts, box prompts, and
 ### Box Prompts and Point Prompts
 <div align="center">
   <img src="images/paper/prompt.PNG" width="100%">
+</div>
+
+
+## Quantitative Results
+
+We conducted a comprehensive comparison encompassing performance, efficiency, and training costs with other SAM compression methods and structural pruning methods.
+
+### Comparing with other SAM compression methods.
+<div align="center">
+  <img src="images/paper/compare_tab1.PNG" width="100%">
+</div>
+
+### Comparing with other structural pruning methods.
+<div align="center">
+  <img src="images/paper/compare_tab2.PNG" width="50%">
 </div>
 
 ## Installation
