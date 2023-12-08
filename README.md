@@ -1,8 +1,14 @@
 # SlimSAM: 0.1% Data Makes Segment Anything Slim
-
 <div align="center">
 <img src="images/paper/intro.PNG" width="50%">
-<img src="images/paper/everything.PNG" width="100%">
+
+</div>
+
+> **DeepCache: Accelerating Diffusion Models for Free**   
+> [Xinyin Ma](https://horseee.github.io/), [Gongfan Fang](https://fangggf.github.io/), [Xinchao Wang](https://sites.google.com/site/sitexinchaowang/)   
+> [Learning and Vision Lab](http://lv-nus.org/), National University of Singapore  
+> 🥯[[Arxiv]](https://arxiv.org/abs/2312.00858)🎄[[Project Page]](https://horseee.github.io/Diffusion_DeepCache/)
+<div align="center">
 <img src="images/paper/process.PNG" width="100%">
 </div>
 <!-- ![Intro](images/paper/intro.PNG?raw=true) -->
