@@ -1,7 +1,7 @@
 # SlimSAM: 0.1% Data Makes Segment Anything Slim
 <div align="center">
+<img src="images/paper/intro.PNG" width="66%">
 <img src="images/paper/everything.PNG" width="100%">
-<img src="images/paper/intro.PNG" width="70%">
 </div>
 
 > **0.1% Data Makes Segment Anything Slim**   
