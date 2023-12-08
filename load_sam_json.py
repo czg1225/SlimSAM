@@ -26,6 +26,8 @@ class SamDataset(Dataset):
         self._json_paths = sorted(glob.glob(osp.join(root_folder, "*.json")))
         self.transform = ResizeLongestSide(1024)
         self.sam = sam_model_registry['vit_b'](checkpoint=None)
+        # self.sam = Sam(image_encoder=None, prompt_encoder=None, mask_decoder=None, pixel_mean=[123.675, 116.28, 103.53],
+        # pixel_std=[58.395, 57.12, 57.375])
 
     def __len__(self):
         return self.dataset_size
@@ -39,7 +41,7 @@ class SamDataset(Dataset):
             image = cv2.imread(self._image_paths[index])
         
         if not self.val: 
-            annot = self._json_paths[index+1000]
+            annot = self._json_paths[index]
         elif self.val:
             annot = self._json_paths[index]
 
