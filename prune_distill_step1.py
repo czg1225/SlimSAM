@@ -120,7 +120,7 @@ def train_model():
 
             with torch.no_grad():
                 teacher_embedding, teacher_qkv_emb1, teacher_qkv_emb2, teacher_mid_emb,_ = teacher_model.image_encoder(input_image)
-                teacher_embedding += torch.normal(mean=0,std=0.01,size=(1, 256, 64, 64)).to(device)
+                teacher_embedding += torch.normal(mean=0,std=0.01,size=(1, 256, 64, 64)).to(device)  #Disturbed image embedding
                 
             student_embedding, student_qkv_emb1, student_qkv_emb2, student_mid_emb,_= model.image_encoder(input_image)
             
@@ -130,6 +130,7 @@ def train_model():
     
         #########################################################################################################
         print("===========================Pruning Start===========================")
+        #Embedding Pruning
         model.cpu().eval()
         model = del_pos_init(model)
         model.image_encoder = prune_sam_step1(model=model.image_encoder, example_inputs=example_inputs, model_name=model_name, round_to=round_to, ratio=ratio, imptype = imptype, norm_type=norm_type, global_way=global_way)
@@ -144,7 +145,7 @@ def train_model():
         model.zero_grad()
         teacher_model.zero_grad()
 
-
+        #Bottleneck Aligning
         for epoch in range(num_train_epochs):
 
             torch.cuda.empty_cache()

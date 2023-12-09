@@ -9,7 +9,7 @@ from segment_anything_kd.modeling.image_encoder import Attention
 from load_sam_json import SamDataset
 from torch.nn.functional import threshold, normalize
 from segment_anything_kd.utils.transforms import ResizeLongestSide
-from prune_funcs import calculate_iou, get_pos_init, del_pos_init, prune_sam_step1, prune_sam_step2_local ,prune_sam_step2_global
+from prune_funcs import calculate_iou, get_pos_init, del_pos_init, prune_sam_step1 ,prune_sam_step2_global
 import torch_pruning as tp
 import copy
 import json
@@ -70,6 +70,7 @@ def train_model():
     model = torch.load(model_path)
     model.image_encoder = model.image_encoder.module
 
+    # rewrite the forward function of image encoder
     def forward(self, x):
 
         block_outputs = []
@@ -155,7 +156,7 @@ def train_model():
 
             with torch.no_grad():
                 teacher_embedding,_ = pruned_model.image_encoder(input_image)
-                teacher_embedding += torch.normal(mean=0,std=0.01,size=(1, 256, 64, 64)).to(device)
+                teacher_embedding += torch.normal(mean=0,std=0.01,size=(1, 256, 64, 64)).to(device)   #Disturbed image embedding
                 
             student_embedding, _= model.image_encoder(input_image)
             
@@ -165,6 +166,7 @@ def train_model():
     
         #########################################################################################################
         print("===========================Pruning Start===========================")
+        #Bottleneck Pruning
         model.cpu().eval()
         model = del_pos_init(model)
         ##Global pruning QKV Attention
@@ -183,6 +185,7 @@ def train_model():
         model.zero_grad()
         teacher_model.zero_grad()
 
+        #Embedding Aligning
         for epoch in range(num_train_epochs):
 
             torch.cuda.empty_cache()
