@@ -7,7 +7,7 @@
 > **0.1% Data Makes Segment Anything Slim**   
 > [Zigeng Chen](https://github.com/czg1225), [Xinyin Ma](https://horseee.github.io/), [Gongfan Fang](https://fangggf.github.io/), [Xinchao Wang](https://sites.google.com/site/sitexinchaowang/)   
 > [Learning and Vision Lab](http://lv-nus.org/), National University of Singapore  
-> Paper: [[Arxiv]](https://arxiv.org/abs/2312.00858)
+> Paper: [[Arxiv]](https://arxiv.org/abs/2312.05284)
 
 ### Updates
 * 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
@@ -179,7 +179,14 @@ CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py  --traindata_path <train_da
 If you use SlimSAM in your research, please use the following BibTeX entry. Thank you!
 
 ```bibtex
-
+@misc{chen202301,
+      title={0.1% Data Makes Segment Anything Slim}, 
+      author={Zigeng Chen and Gongfan Fang and Xinyin Ma and Xinchao Wang},
+      year={2023},
+      eprint={2312.05284},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
 
 ## Acknowledgement
