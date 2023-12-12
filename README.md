@@ -175,6 +175,8 @@ CUDA_VISIBLE_DEVICES=0 python prune_distill_step2.py  --traindata_path <train_da
 
 ```
 
+You can adjust the training settings to meet your specific requirements. While our method demonstrates impressive performance with just 10,000 training data, incorporating additional training data will further enhance the model's effectiveness
+
 ## BibTex of our SlimSAM
 If you use SlimSAM in your research, please use the following BibTeX entry. Thank you!
 
