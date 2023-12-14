@@ -111,7 +111,7 @@ Click the links below to download the checkpoints of orginal SAM-B.
 
 - `SAM-B`: [SAM-B model.](https://drive.google.com/file/d/1CtcyOm4h9bXgBF8DEVWn3N7g9-3r4Xzz/view?usp=sharing)
 
-The check points of our SlimSAM are avalable. We release two versions, which are SlimSAM-50 (pruning ratio = 50%) and SlimSAM-77 (pruning ratio = 77%).
+The check points of our SlimSAM are available. We release two versions, which are SlimSAM-50 (pruning ratio = 50%) and SlimSAM-77 (pruning ratio = 77%).
 
 Click the links below to download the checkpoints for the corresponding pruning ratio.
 
