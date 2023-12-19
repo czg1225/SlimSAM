@@ -109,7 +109,7 @@ def test_model():
     mask_generator = SamAutomaticMaskGenerator(
     model=SlimSAM_model,
     points_per_side=32,
-    pred_iou_thresh=0.85,
+    pred_iou_thresh=0.88,
     stability_score_thresh=0.90,
     crop_n_layers=1,
     crop_n_points_downscale_factor=2,
