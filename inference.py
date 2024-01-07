@@ -77,6 +77,12 @@ def test_model():
     # teacher_model.to(device)
     # teacher_model.eval()
 
+    # teacher_model_type = 'vit_p77'
+    # checkpoint = 'checkpoints/SlimSAM-77-uniform.pth'
+    # SlimSAM_model = sam_model_registry[teacher_model_type](checkpoint=checkpoint)
+    # SlimSAM_model.to(device)
+    # SlimSAM_model.eval()
+
     model_path = "checkpoints/SlimSAM-77.pth"
     SlimSAM_model = torch.load(model_path)
     SlimSAM_model.image_encoder = SlimSAM_model.image_encoder.module

@@ -14,6 +14,7 @@ from .modeling import ImageEncoderViT, MaskDecoder, PromptEncoder, Sam, TwoWayTr
 def build_sam_vit_h(checkpoint=None):
     return _build_sam(
         encoder_embed_dim=1280,
+        mlp_dim=5120,
         encoder_depth=32,
         encoder_num_heads=16,
         encoder_global_attn_indexes=[7, 15, 23, 31],
@@ -27,6 +28,7 @@ build_sam = build_sam_vit_h
 def build_sam_vit_l(checkpoint=None):
     return _build_sam(
         encoder_embed_dim=1024,
+        mlp_dim=4096,
         encoder_depth=24,
         encoder_num_heads=16,
         encoder_global_attn_indexes=[5, 11, 17, 23],
@@ -37,6 +39,7 @@ def build_sam_vit_l(checkpoint=None):
 def build_sam_vit_b(checkpoint=None):
     return _build_sam(
         encoder_embed_dim=768,
+        mlp_dim=3072,
         encoder_depth=12,
         encoder_num_heads=12,
         encoder_global_attn_indexes=[2, 5, 8, 11],
@@ -46,15 +49,17 @@ def build_sam_vit_b(checkpoint=None):
 def build_sam_vit_p50(checkpoint=None):
     return _build_sam(
         encoder_embed_dim=384,
+        mlp_dim=1536,
         encoder_depth=12,
         encoder_num_heads=12,
         encoder_global_attn_indexes=[2, 5, 8, 11],
         checkpoint=checkpoint,
     )
 
-def build_sam_vit_p75(checkpoint=None):
+def build_sam_vit_p77(checkpoint=None):
     return _build_sam(
-        encoder_embed_dim=192,
+        encoder_embed_dim=168,
+        mlp_dim=696,
         encoder_depth=12,
         encoder_num_heads=12,
         encoder_global_attn_indexes=[2, 5, 8, 11],
@@ -68,12 +73,13 @@ sam_model_registry = {
     "vit_l": build_sam_vit_l,
     "vit_b": build_sam_vit_b,
     "vit_p50": build_sam_vit_p50,
-    "vit_p75": build_sam_vit_p75,
+    "vit_p77": build_sam_vit_p77,
 }
 
 
 def _build_sam(
     encoder_embed_dim,
+    mlp_dim,
     encoder_depth,
     encoder_num_heads,
     encoder_global_attn_indexes,
@@ -88,6 +94,7 @@ def _build_sam(
         image_encoder=ImageEncoderViT(
             depth=encoder_depth,
             embed_dim=encoder_embed_dim,
+            mlp_dim=mlp_dim,
             img_size=image_size,
             mlp_ratio=4,
             norm_layer=partial(torch.nn.LayerNorm, eps=1e-6),

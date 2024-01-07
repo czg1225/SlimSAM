@@ -21,6 +21,7 @@ class ImageEncoderViT(nn.Module):
         patch_size: int = 16,
         in_chans: int = 3,
         embed_dim: int = 768,
+        mlp_dim: int = 3072,
         depth: int = 12,
         num_heads: int = 12,
         mlp_ratio: float = 4.0,
@@ -76,6 +77,7 @@ class ImageEncoderViT(nn.Module):
         for i in range(depth):
             block = Block(
                 dim=embed_dim,
+                mlp_dim = mlp_dim,
                 num_heads=num_heads,
                 mlp_ratio=mlp_ratio,
                 qkv_bias=qkv_bias,
@@ -127,6 +129,7 @@ class Block(nn.Module):
     def __init__(
         self,
         dim: int,
+        mlp_dim:int,
         num_heads: int,
         mlp_ratio: float = 4.0,
         qkv_bias: bool = True,
@@ -164,7 +167,7 @@ class Block(nn.Module):
         )
 
         self.norm2 = norm_layer(dim)
-        self.mlp = MLPBlock(embedding_dim=dim, mlp_dim=int(dim * mlp_ratio), act=act_layer)
+        self.mlp = MLPBlock(embedding_dim=dim, mlp_dim=mlp_dim, act=act_layer)
 
         self.window_size = window_size
 
@@ -215,10 +218,10 @@ class Attention(nn.Module):
         head_dim = dim // num_heads
         self.scale = head_dim**-0.5
 
-        #self.qkv = nn.Linear(dim, dim * 3, bias=qkv_bias)
-        self.q = nn.Linear(dim, dim, bias=qkv_bias)
-        self.k = nn.Linear(dim, dim, bias=qkv_bias)
-        self.v = nn.Linear(dim, dim, bias=qkv_bias)
+        self.qkv = nn.Linear(dim, dim * 3, bias=qkv_bias)
+        # self.q = nn.Linear(dim, dim, bias=qkv_bias)
+        # self.k = nn.Linear(dim, dim, bias=qkv_bias)
+        # self.v = nn.Linear(dim, dim, bias=qkv_bias)
         
         self.proj = nn.Linear(dim, dim)
 
@@ -236,24 +239,24 @@ class Attention(nn.Module):
         B, H, W, _ = x.shape
 
 
-        # # qkv with shape (3, B, nHead, H * W, C)
-        # qkv = self.qkv(x).reshape(B, H * W, 3, self.num_heads, -1).permute(2, 0, 3, 1, 4)
-        # # q, k, v with shape (B * nHead, H * W, C)
-        # q, k, v = qkv.reshape(3, B * self.num_heads, H * W, -1).unbind(0)
+        # qkv with shape (3, B, nHead, H * W, C)
+        qkv = self.qkv(x).reshape(B, H * W, 3, self.num_heads, -1).permute(2, 0, 3, 1, 4)
+        # q, k, v with shape (B * nHead, H * W, C)
+        q, k, v = qkv.reshape(3, B * self.num_heads, H * W, -1).unbind(0)
 
 
-        q = self.q(x)
-        k = self.k(x)
-        v = self.v(x)
+        # q = self.q(x)
+        # k = self.k(x)
+        # v = self.v(x)
 
-        q = q.reshape(B, H * W, 1, self.num_heads, -1).permute(2, 0, 3, 1, 4)
-        q = q.reshape(B * self.num_heads, H * W, -1)
+        # q = q.reshape(B, H * W, 1, self.num_heads, -1).permute(2, 0, 3, 1, 4)
+        # q = q.reshape(B * self.num_heads, H * W, -1)
 
-        k = k.reshape(B, H * W, 1, self.num_heads, -1).permute(2, 0, 3, 1, 4)
-        k = k.reshape(B * self.num_heads, H * W, -1)
+        # k = k.reshape(B, H * W, 1, self.num_heads, -1).permute(2, 0, 3, 1, 4)
+        # k = k.reshape(B * self.num_heads, H * W, -1)
 
-        v = v.reshape(B, H * W, 1, self.num_heads, -1).permute(2, 0, 3, 1, 4)
-        v = v.reshape(B * self.num_heads, H * W, -1)
+        # v = v.reshape(B, H * W, 1, self.num_heads, -1).permute(2, 0, 3, 1, 4)
+        # v = v.reshape(B * self.num_heads, H * W, -1)
 
 
         attn = (q * self.scale) @ k.transpose(-2, -1)

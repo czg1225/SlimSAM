@@ -11,6 +11,7 @@
 > Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1AQBGqjI51IERVibBKigTz_sra3CIVgR4?usp=sharing)
 
 ### Updates
+* 🚀 **January 7, 2024**: Release models using uniform local pruning for easier state dict loading.
 * 🚀 **December 19, 2023**: Release the Colab example for **SlimSAM**.
 * 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
 
@@ -117,11 +118,13 @@ The check points of our SlimSAM are avalable. We release two versions, which are
 
 Click the links below to download the checkpoints for the corresponding pruning ratio.
 
-- `SlimSAM-50`: [SlimSAM-50 model.](https://drive.google.com/file/d/1iCN9IW0Su0Ud_fOFoQUnTdkC3bFveMND/view?usp=sharing)
-- `SlimSAM-77`: [SlimSAM-77 model.](https://drive.google.com/file/d/1L7LB6gHDzR-3D63pH9acD9E0Ul9_wMF-/view)
+1. Global Pruning Models:
+
+- `SlimSAM-50`: [SlimSAM-50 model.](https://drive.google.com/file/d/1bTjBZs2oWHeo6OPxumD_Gces4VCcU0JI/view?usp=sharing)
+- `SlimSAM-77`: [SlimSAM-77 model.](https://drive.google.com/file/d/14BhU66umvY0E1FWoGsCMpLqXMNw9c3Nx/view?usp=sharing)
 
 
-These models can be instantiated by running
+Above models can be instantiated by running
 
 ```
 import torch
@@ -144,6 +147,26 @@ def forward(self, x):
 import types
 funcType = types.MethodType
 SlimSAM_model.image_encoder.forward = funcType(forward, SlimSAM_model.image_encoder)
+```
+
+
+2. Local Pruning Models:
+
+- `SlimSAM-50-uniform`: [SlimSAM-50 model.](https://drive.google.com/file/d/1Ld7Q2LY8H2nu4zB6VxwwA5npS5A9OHFq/view?usp=sharing)
+- `SlimSAM-77-uniform`: [SlimSAM-77 model.](https://drive.google.com/file/d/1OeWpfk5WhdlMz5VvYmb9gaE6suzHB0sp/view?usp=sharing)
+
+
+Above models can be instantiated by running
+
+```
+import torch
+from segment_anything import sam_model_registry
+
+model_type = 'vit_p50'
+checkpoint = 'checkpoints/SlimSAM-50-uniform.pth'
+SlimSAM_model = sam_model_registry[model_type](checkpoint=checkpoint)
+SlimSAM_model.to(device)
+SlimSAM_model.eval()
 ```
 
 
