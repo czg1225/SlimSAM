@@ -169,6 +169,21 @@ SlimSAM_model.to(device)
 SlimSAM_model.eval()
 ```
 
+3. Quick loading with Huggingface:
+
+``` python
+model = SamModel.from_pretrained("Zigeng/SlimSAM-uniform-50").to("cuda")
+processor = SamProcessor.from_pretrained("Zigeng/SlimSAM-uniform-50")
+
+img_url = "https://huggingface.co/ybelkada/segment-anything/resolve/main/assets/car.png"
+raw_image = Image.open(requests.get(img_url, stream=True).raw).convert("RGB")
+input_points = [[[450, 600]]] # 2D localization of a window
+inputs = processor(raw_image, input_points=input_points, return_tensors="pt").to("cuda")
+outputs = model(**inputs)
+masks = processor.image_processor.post_process_masks(outputs.pred_masks.cpu(), inputs["original_sizes"].cpu(), inputs["reshaped_input_sizes"].cpu())
+scores = outputs.iou_scores
+```
+
 
 ## <a name="Inference"></a>Inference
 
