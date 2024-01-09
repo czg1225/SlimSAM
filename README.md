@@ -11,6 +11,7 @@
 > Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1AQBGqjI51IERVibBKigTz_sra3CIVgR4?usp=sharing)
 
 ### Updates
+* 🚀 **January 9, 2024**: Quickly loading using hugging face hugs: .
 * 🚀 **January 7, 2024**: Release models using uniform local pruning for easier state dict loading.
 * 🚀 **December 19, 2023**: Release the Colab example for **SlimSAM**.
 * 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
@@ -126,7 +127,7 @@ Click the links below to download the checkpoints for the corresponding pruning 
 
 Above models can be instantiated by running
 
-```
+``` python
 import torch
 SlimSAM_model = torch.load(<model_path>)
 SlimSAM_model.image_encoder = SlimSAM_model.image_encoder.module
@@ -158,7 +159,7 @@ SlimSAM_model.image_encoder.forward = funcType(forward, SlimSAM_model.image_enco
 
 Above models can be instantiated by running
 
-```
+``` python
 import torch
 from segment_anything import sam_model_registry
 
@@ -169,7 +170,7 @@ SlimSAM_model.to(device)
 SlimSAM_model.eval()
 ```
 
-3. Quick loading with Huggingface:
+3. Quickly loading with Huggingface:
 
 ``` python
 model = SamModel.from_pretrained("Zigeng/SlimSAM-uniform-50").to("cuda")
