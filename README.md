@@ -11,6 +11,7 @@
 > Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1AQBGqjI51IERVibBKigTz_sra3CIVgR4?usp=sharing)
 
 ### Updates
+* 🚀 **January 10, 2024**: Run **SlimSAM** in your browser with :hugs: Transformers.js ([demo](https://huggingface.co/spaces/Xenova/segment-anything-web)).
 * 🚀 **January 9, 2024**: Quickly loading using huggingface :hugs: .
 * 🚀 **January 7, 2024**: Release models using uniform local pruning for easier state dict loading.
 * 🚀 **December 19, 2023**: Release the Colab example for **SlimSAM**.
