@@ -14,6 +14,9 @@
   <a href="https://huggingface.co/Zigeng/SlimSAM-uniform-77">
     <img src="https://img.shields.io/badge/HuggingFace-SlimSAM77-FAB093.svg?style=flat-square" alt="Llama-2">
   </a>
+  <a href="https://huggingface.co/spaces/Xenova/segment-anything-web">
+    <img src="https://img.shields.io/badge/Demo-Huggingface-924E7D.svg?style=flat-square" alt="Vicuna">
+  </a>
   <a href="https://colab.research.google.com/drive/1AQBGqjI51IERVibBKigTz_sra3CIVgR4?usp=sharing">
     <img src="https://img.shields.io/badge/Demo-Colab-924E7D.svg?style=flat-square" alt="Vicuna">
   </a>
