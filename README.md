@@ -29,7 +29,7 @@
 > Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1AQBGqjI51IERVibBKigTz_sra3CIVgR4?usp=sharing)
 
 ### Updates
-* 🚀 **January 9, 2024**: Quickly loading using huggingface :hugs: .
+* 🚀 **January 9, 2024**: Quickly loading using huggingface :hugs: :hugs: :hugs: .
 * 🚀 **January 7, 2024**: Release models using uniform local pruning for easier state dict loading.
 * 🚀 **December 19, 2023**: Release the Colab example for **SlimSAM**.
 * 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
@@ -39,7 +39,7 @@
 <img src="images/paper/everything.PNG" width="100%">
 </div>
 
-Quickly loading with Huggingface:
+#### Quickly loading with Huggingface :hugs::
 
 ``` python
 model = SamModel.from_pretrained("Zigeng/SlimSAM-uniform-50").to("cuda")
@@ -57,7 +57,7 @@ scores = outputs.iou_scores
 ## Introduction
 
 <div align="center">
-<img src="images/paper/intro.PNG" width="66%">
+<img src="images/paper/intro.PNG" width="55%">
 </div>
 
 <div align="center">
