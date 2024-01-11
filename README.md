@@ -1,7 +1,25 @@
-# SlimSAM: 0.1% Data Makes Segment Anything Slim
 <div align="center">
-<img src="images/paper/intro.PNG" width="66%">
-<img src="images/paper/everything.PNG" width="100%">
+<img src="images/paper/title.PNG" width="33%">
+</div>
+
+<h1>SlimSAM: 0.1% Data Makes Segment Anything Slim</h1>
+  <div align="center">
+  <a href="https://pytorch.org/">
+    <img src="https://img.shields.io/badge/PyTorch-%3E=v1.7.0-EE4C2C.svg?style=flat-square" alt="PyTorch>=v1.7.1">
+  </a>
+  <a href="https://huggingface.co/Zigeng/SlimSAM-uniform-50">
+    <img src="https://img.shields.io/badge/HuggingFace-SlimSAM50-FFB000.svg?style=flat-square" alt="LLaMA">
+  </a>
+  <a href="https://huggingface.co/Zigeng/SlimSAM-uniform-77">
+    <img src="https://img.shields.io/badge/HuggingFace-SlimSAM77-FAB093.svg?style=flat-square" alt="Llama-2">
+  </a>
+  <a href="https://colab.research.google.com/drive/1AQBGqjI51IERVibBKigTz_sra3CIVgR4?usp=sharing">
+    <img src="https://img.shields.io/badge/Demo-Colab-924E7D.svg?style=flat-square" alt="Vicuna">
+  </a>
+  <a href="https://arxiv.org/abs/2312.05284">
+    <img src="https://img.shields.io/badge/Paper-Arxiv-1A63BD.svg?style=flat-square" alt="BLOOM">
+  </a>
+
 </div>
 
 > **0.1% Data Makes Segment Anything Slim**   
@@ -16,7 +34,31 @@
 * 🚀 **December 19, 2023**: Release the Colab example for **SlimSAM**.
 * 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
 
+## Fast Start
+<div align="center">
+<img src="images/paper/everything.PNG" width="100%">
+</div>
+
+Quickly loading with Huggingface:
+
+``` python
+model = SamModel.from_pretrained("Zigeng/SlimSAM-uniform-50").to("cuda")
+processor = SamProcessor.from_pretrained("Zigeng/SlimSAM-uniform-50")
+
+img_url = "https://huggingface.co/ybelkada/segment-anything/resolve/main/assets/car.png"
+raw_image = Image.open(requests.get(img_url, stream=True).raw).convert("RGB")
+input_points = [[[450, 600]]] # 2D localization of a window
+inputs = processor(raw_image, input_points=input_points, return_tensors="pt").to("cuda")
+outputs = model(**inputs)
+masks = processor.image_processor.post_process_masks(outputs.pred_masks.cpu(), inputs["original_sizes"].cpu(), inputs["reshaped_input_sizes"].cpu())
+scores = outputs.iou_scores
+```
+
 ## Introduction
+
+<div align="center">
+<img src="images/paper/intro.PNG" width="66%">
+</div>
 
 <div align="center">
 <img src="images/paper/process.PNG" width="100%">
@@ -148,6 +190,8 @@ def forward(self, x):
 import types
 funcType = types.MethodType
 SlimSAM_model.image_encoder.forward = funcType(forward, SlimSAM_model.image_encoder)
+SlimSAM_model.to(device)
+SlimSAM_model.eval()
 ```
 
 
@@ -168,21 +212,6 @@ checkpoint = 'checkpoints/SlimSAM-50-uniform.pth'
 SlimSAM_model = sam_model_registry[model_type](checkpoint=checkpoint)
 SlimSAM_model.to(device)
 SlimSAM_model.eval()
-```
-
-3. Quickly loading with Huggingface:
-
-``` python
-model = SamModel.from_pretrained("Zigeng/SlimSAM-uniform-50").to("cuda")
-processor = SamProcessor.from_pretrained("Zigeng/SlimSAM-uniform-50")
-
-img_url = "https://huggingface.co/ybelkada/segment-anything/resolve/main/assets/car.png"
-raw_image = Image.open(requests.get(img_url, stream=True).raw).convert("RGB")
-input_points = [[[450, 600]]] # 2D localization of a window
-inputs = processor(raw_image, input_points=input_points, return_tensors="pt").to("cuda")
-outputs = model(**inputs)
-masks = processor.image_processor.post_process_masks(outputs.pred_masks.cpu(), inputs["original_sizes"].cpu(), inputs["reshaped_input_sizes"].cpu())
-scores = outputs.iou_scores
 ```
 
 
