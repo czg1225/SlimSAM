@@ -2,7 +2,7 @@
 <img src="images/paper/title.PNG" width="33%">
 </div>
 
-<div align="center">
+
 <h1>SlimSAM: 0.1% Data Makes Segment Anything Slim</h1>
   <div align="center">
   <a href="https://pytorch.org/">
@@ -20,7 +20,6 @@
   <a href="https://arxiv.org/abs/2312.05284">
     <img src="https://img.shields.io/badge/Paper-Arxiv-1A63BD.svg?style=flat-square" alt="BLOOM">
   </a>
-
 </div>
 
 > **0.1% Data Makes Segment Anything Slim**   
