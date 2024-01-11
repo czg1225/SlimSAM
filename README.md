@@ -2,6 +2,7 @@
 <img src="images/paper/title.PNG" width="33%">
 </div>
 
+<div align="center">
 <h1>SlimSAM: 0.1% Data Makes Segment Anything Slim</h1>
   <div align="center">
   <a href="https://pytorch.org/">
@@ -165,7 +166,7 @@ The check points of our SlimSAM are avalable. We release two versions, which are
 
 Click the links below to download the checkpoints for the corresponding pruning ratio.
 
-### Global Pruning Models:
+#### Global Pruning Models:
 
 - `SlimSAM-50`: [SlimSAM-50 model.](https://drive.google.com/file/d/1bTjBZs2oWHeo6OPxumD_Gces4VCcU0JI/view?usp=sharing)
 - `SlimSAM-77`: [SlimSAM-77 model.](https://drive.google.com/file/d/14BhU66umvY0E1FWoGsCMpLqXMNw9c3Nx/view?usp=sharing)
@@ -199,7 +200,7 @@ SlimSAM_model.eval()
 ```
 
 
-### Local Pruning Models:
+#### Local Pruning Models:
 
 - `SlimSAM-50-uniform`: [SlimSAM-50 model.](https://drive.google.com/file/d/1Ld7Q2LY8H2nu4zB6VxwwA5npS5A9OHFq/view?usp=sharing)
 - `SlimSAM-77-uniform`: [SlimSAM-77 model.](https://drive.google.com/file/d/1OeWpfk5WhdlMz5VvYmb9gaE6suzHB0sp/view?usp=sharing)
