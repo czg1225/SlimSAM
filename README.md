@@ -28,16 +28,20 @@
 > Paper: [[Arxiv]](https://arxiv.org/abs/2312.05284)
 > Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1AQBGqjI51IERVibBKigTz_sra3CIVgR4?usp=sharing)
 
+
+
 ### Updates
 * 🚀 **January 9, 2024**: Quickly loading using huggingface :hugs: :hugs: :hugs: .
 * 🚀 **January 7, 2024**: Release models using uniform local pruning for easier state dict loading.
 * 🚀 **December 19, 2023**: Release the Colab example for **SlimSAM**.
 * 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
 
-## Fast Start
 <div align="center">
 <img src="images/paper/everything.PNG" width="100%">
 </div>
+
+
+## Fast Start 🚀
 
 #### Quickly loading with Huggingface :hugs::
 
