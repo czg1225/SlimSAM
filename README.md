@@ -2,7 +2,7 @@
 <img src="images/paper/title.PNG" width="33%">
 </div>
 
-
+<div align="center">
 <h1>SlimSAM: 0.1% Data Makes Segment Anything Slim</h1>
   <div align="center">
   <a href="https://pytorch.org/">
@@ -21,6 +21,8 @@
     <img src="https://img.shields.io/badge/Paper-Arxiv-1A63BD.svg?style=flat-square" alt="BLOOM">
   </a>
 </div>
+</div>
+
 
 > **0.1% Data Makes Segment Anything Slim**   
 > [Zigeng Chen](https://github.com/czg1225), [Gongfan Fang](https://fangggf.github.io/), [Xinyin Ma](https://horseee.github.io/), [Xinchao Wang](https://sites.google.com/site/sitexinchaowang/)   
