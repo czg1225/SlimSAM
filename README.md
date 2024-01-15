@@ -260,13 +260,11 @@ You can adjust the training settings to meet your specific requirements. While o
 If you use SlimSAM in your research, please use the following BibTeX entry. Thank you!
 
 ```bibtex
-@misc{chen202301,
-      title={0.1% Data Makes Segment Anything Slim}, 
-      author={Zigeng Chen and Gongfan Fang and Xinyin Ma and Xinchao Wang},
-      year={2023},
-      eprint={2312.05284},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{chen20230,
+  title={0.1\% Data Makes Segment Anything Slim},
+  author={Chen, Zigeng and Fang, Gongfan and Ma, Xinyin and Wang, Xinchao},
+  journal={arXiv preprint arXiv:2312.05284},
+  year={2023}
 }
 ```
 
