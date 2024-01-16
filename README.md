@@ -51,6 +51,9 @@
 #### Quickly loading with Huggingface :hugs::
 
 ``` python
+from PIL import Image
+from transformers import SamModel, SamProcessor
+
 model = SamModel.from_pretrained("Zigeng/SlimSAM-uniform-50").to("cuda")
 processor = SamProcessor.from_pretrained("Zigeng/SlimSAM-uniform-50")
 
