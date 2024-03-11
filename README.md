@@ -69,11 +69,11 @@ scores = outputs.iou_scores
 ## Introduction
 
 <div align="center">
-<img src="images/paper/intro.PNG" width="80%">
+<img src="images/paper/intro.png" width="80%">
 </div>
 
 <div align="center">
-<img src="images/paper/process.PNG" width="80%">
+<img src="images/paper/process.png" width="80%">
 </div>
 
 **SlimSAM** is a novel data-efficient SAM compression method that achieves superior performance with extremely less training data. The essence of SlimSAM is encapsulated in the alternate slimming framework which effectively enhances knowledge inheritance under severely limited training data availability and exceptional pruning ratio. Diverging from prior techniques, our framework progressively compresses the model by alternately pruning and distilling distinct, decoupled sub-structures. Disturbed Taylor pruning is also proposed to address the misalignment between the pruning objective and training target, thereby boosting the post-distillation after pruning.
