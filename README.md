@@ -97,12 +97,12 @@ We conducted a comprehensive comparison encompassing performance, efficiency, an
 
 ### Comparing with other SAM compression methods.
 <div align="center">
-  <img src="images/paper/compare_tab1.PNG" width="100%">
+  <img src="images/paper/compare_tab1.PNG" width="90%">
 </div>
 
 ### Comparing with other structural pruning methods.
 <div align="center">
-  <img src="images/paper/compare_tab2.PNG" width="80%">
+  <img src="images/paper/compare_tab2.PNG" width="70%">
 </div>
 
 ## Installation
