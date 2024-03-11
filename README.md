@@ -41,9 +41,9 @@
 * 🚀 **December 19, 2023**: Release the Colab example for **SlimSAM**.
 * 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
 
-<div align="center">
+<!-- <div align="center">
 <img src="images/paper/everything.PNG" width="100%">
-</div>
+</div> -->
 
 
 ## Fast Start 🚀
@@ -69,18 +69,18 @@ scores = outputs.iou_scores
 ## Introduction
 
 <div align="center">
-<img src="images/paper/intro.PNG" width="55%">
+<img src="images/paper/intro.PNG" width="90%">
 </div>
 
 <div align="center">
-<img src="images/paper/process.PNG" width="100%">
+<img src="images/paper/process.PNG" width="90%">
 </div>
 
-**SlimSAM** is a novel SAM compression method, which efficiently reuses pre-trained SAMs without the necessity for extensive retraining. This is achieved by the efficient reuse of pre-trained SAMs through a unified pruning-distillation framework. To enhance knowledge inheritance from the original SAM, we employ an innovative alternate slimming strategy that partitions the compression process into a progressive procedure. Diverging from prior pruning techniques, we meticulously prune and distill decoupled model structures in an alternating fashion. Furthermore, a novel label-free pruning criterion is also proposed to align the pruning objective with the optimization target, thereby boosting the post-distillation after pruning.
+**SlimSAM** is a novel data-efficient SAM compression method that achieves superior performance with extremely less training data. The essence of SlimSAM is encapsulated in the alternate slimming framework which effectively enhances knowledge inheritance under severely limited training data availability and exceptional pruning ratio. Diverging from prior techniques, our framework progressively compresses the model by alternately pruning and distilling distinct, decoupled sub-structures. Disturbed Taylor pruning is also proposed to address the misalignment between the pruning objective and training target, thereby boosting the post-distillation after pruning.
 
 ![Frame](images/paper/frame.PNG?raw=true)
 
-SlimSAM achieves approaching performance while reducing the parameter counts to **0.9\% (5.7M)**, MACs to **0.8\% (21G)**, and requiring mere **0.1\% (10k)** of the training data when compared to the original SAM-H. Extensive experiments demonstrate that our method realize significant superior performance while utilizing over **10 times** less training data when compared to other SAM compression methods.
+SlimSAM yields significant performance improvements while demanding **over 10 times less** training data than any other existing compression methods. Even when compared to the original SAM, SlimSAM achieves approaching performance while reducing parameter counts to merely **1.4\% (9.1M)**, MACs to **0.8\% (23G)**, and requiring only **0.1\% (10k)** of the SAM training data.
 
 ## Visualization Results
 
@@ -108,7 +108,7 @@ We conducted a comprehensive comparison encompassing performance, efficiency, an
 
 ### Comparing with other structural pruning methods.
 <div align="center">
-  <img src="images/paper/compare_tab2.PNG" width="50%">
+  <img src="images/paper/compare_tab2.PNG" width="80%">
 </div>
 
 ## Installation
@@ -309,6 +309,7 @@ If you use SlimSAM in your research, please use the following BibTeX entry. Than
 
 ***********************************************************
 
+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
 
 
-
+git remote set-url origin https://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@github.com/czg1225/SlimSAM.git
