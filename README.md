@@ -80,7 +80,7 @@ scores = outputs.iou_scores
 
 
 <div align="center">
-<img src="images/paper/frame.PNG" width="85%">
+<img src="images/paper/frame.png" width="90%">
 </div>
 
 SlimSAM yields significant performance improvements while demanding **over 10 times less** training data than any other existing compression methods. Even when compared to the original SAM, SlimSAM achieves approaching performance while reducing parameter counts to merely **1.4\% (9.1M)**, MACs to **0.8\% (23G)**, and requiring only **0.1\% (10k)** of the SAM training data.
