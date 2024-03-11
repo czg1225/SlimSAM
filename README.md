@@ -41,9 +41,9 @@
 * 🚀 **December 19, 2023**: Release the Colab example for **SlimSAM**.
 * 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
 
-<!-- <div align="center">
-<img src="images/paper/everything.PNG" width="100%">
-</div> -->
+<div align="center">
+<img src="images/paper/everything2.PNG" width="100%">
+</div>
 
 
 ## Fast Start 🚀
@@ -84,13 +84,7 @@ SlimSAM yields significant performance improvements while demanding **over 10 ti
 
 ## Visualization Results
 
-Qualitative comparison of results obtained using point prompts, box prompts, and segment everything prompts are shown in the following section.
-
-### Segment Everything Prompts
-<div align="center">
-  <img src="images/paper/everything2.PNG" width="100%">
-</div>
-
+Qualitative comparison of results obtained using point prompts, box prompts, and segment everything prompts are shown.
 ### Box Prompts and Point Prompts
 <div align="center">
   <img src="images/paper/prompt.PNG" width="100%">
