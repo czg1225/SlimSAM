@@ -309,6 +309,6 @@ If you use SlimSAM in your research, please use the following BibTeX entry. Than
 
 ***********************************************************
 
-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
+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
 
-git remote set-url origin https://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@github.com/czg1225/SlimSAM.git
+git remote set-url origin https://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@github.com/czg1225/SlimSAM.git
