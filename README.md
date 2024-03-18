@@ -41,10 +41,7 @@
 * 🚀 **December 19, 2023**: Release the Colab example for **SlimSAM**.
 * 🚀 **December 11, 2023**: Release the training code, inference code and pre-trained models for **SlimSAM**. 
 
-<div align="center">
-<img src="images/paper/everything2.PNG" width="100%">
-</div>
-
+![everything](images/paper/everything2.PNG)
 
 ## Fast Start 🚀
 
@@ -78,11 +75,6 @@ scores = outputs.iou_scores
 
 **SlimSAM** is a novel data-efficient SAM compression method that achieves superior performance with extremely less training data. The essence of SlimSAM is encapsulated in the alternate slimming framework which effectively enhances knowledge inheritance under severely limited training data availability and exceptional pruning ratio. Diverging from prior techniques, our framework progressively compresses the model by alternately pruning and distilling distinct, decoupled sub-structures. Disturbed Taylor pruning is also proposed to address the misalignment between the pruning objective and training target, thereby boosting the post-distillation after pruning.
 
-
-<!-- <div align="center">
-<img src="images/paper/frame_00.png" width="95%">
-</div> -->
-
 ![SlimSAM process](images/paper/frame.png)
 
 SlimSAM yields significant performance improvements while demanding **over 10 times less** training data than any other existing compression methods. Even when compared to the original SAM, SlimSAM achieves approaching performance while reducing parameter counts to merely **1.4\% (9.1M)**, MACs to **0.8\% (23G)**, and requiring only **0.1\% (10k)** of the SAM training data.
@@ -91,10 +83,8 @@ SlimSAM yields significant performance improvements while demanding **over 10 ti
 
 Qualitative comparison of results obtained using point prompts, box prompts, and segment everything prompts are shown.
 ### Box Prompts and Point Prompts
-<div align="center">
-  <img src="images/paper/prompt.PNG" width="100%">
-</div>
 
+![prompt](images/paper/prompt.PNG)
 
 ## Quantitative Results
 
