@@ -35,6 +35,7 @@
 
 
 ### Updates
+* 🚀 **March 22, 2024**: Awesome-Efficient-Segment-Anything is now available. Find more efficient SAMs [here](https://github.com/czg1225/Awesome-Efficient-Segment-Anything).
 * 🚀 **January 10, 2024**: Run **SlimSAM** in your browser with :hugs: Transformers.js ([demo](https://huggingface.co/spaces/Xenova/segment-anything-web)).
 * 🚀 **January 9, 2024**: Quickly loading using huggingface :hugs: :hugs: :hugs: .
 * 🚀 **January 7, 2024**: Release models using uniform local pruning for easier state dict loading.
