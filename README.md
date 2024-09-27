@@ -5,6 +5,9 @@
 <div align="center">
 <h1>SlimSAM: 0.1% Data Makes Segment Anything Slim</h1>
   <div align="center">
+  <a href="https://arxiv.org/abs/2312.05284">
+    <img src="https://img.shields.io/badge/Conference-NeurIPS'2024-1A63BD.svg?style=flat-square" alt="BLOOM">
+  </a>
   <a href="https://pytorch.org/">
     <img src="https://img.shields.io/badge/PyTorch-%3E=v1.7.0-EE4C2C.svg?style=flat-square" alt="PyTorch>=v1.7.1">
   </a>
@@ -20,9 +23,6 @@
   <a href="https://colab.research.google.com/drive/1AQBGqjI51IERVibBKigTz_sra3CIVgR4?usp=sharing">
     <img src="https://img.shields.io/badge/Demo-Colab-924E7D.svg?style=flat-square" alt="Vicuna">
   </a>
-  <a href="https://arxiv.org/abs/2312.05284">
-    <img src="https://img.shields.io/badge/Paper-Arxiv-1A63BD.svg?style=flat-square" alt="BLOOM">
-  </a>
 </div>
 </div>
 
@@ -30,7 +30,7 @@
 > **0.1% Data Makes Segment Anything Slim**   
 > [Zigeng Chen](https://github.com/czg1225), [Gongfan Fang](https://fangggf.github.io/), [Xinyin Ma](https://horseee.github.io/), [Xinchao Wang](https://sites.google.com/site/sitexinchaowang/)   
 > [Learning and Vision Lab](http://lv-nus.org/), National University of Singapore  
-> Paper: [[Arxiv]](https://arxiv.org/abs/2312.05284)
+> Paper: [[Paper]](https://arxiv.org/abs/2312.05284)
 <!-- > Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1AQBGqjI51IERVibBKigTz_sra3CIVgR4?usp=sharing) -->
 
 
