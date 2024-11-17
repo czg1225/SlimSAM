@@ -1,11 +1,7 @@
 import numpy as np
 import torch
 import torch.nn as nn
-import random
-from segment_anything_kd import SamPredictor, sam_model_registry
 from segment_anything_kd.modeling.image_encoder import Attention
-from statistics import mean
-from torch.nn.functional import threshold, normalize
 from segment_anything_kd.modeling.common import LayerNorm2d
 import torch_pruning as tp
 

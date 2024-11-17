@@ -1,17 +1,10 @@
 import numpy as np
 from torch.utils.data import DataLoader
-from torch.optim import Adam
 import torch
-import torch.nn as nn
-import random
-from segment_anything_kd import SamPredictor, sam_model_registry
-from segment_anything_kd.modeling.image_encoder import Attention
+from segment_anything_kd import sam_model_registry
 from load_sam_json import SamDataset
-from torch.nn.functional import threshold, normalize
 from segment_anything_kd.utils.transforms import ResizeLongestSide
-from prune_funcs import calculate_iou, get_pos_init, del_pos_init, prune_sam_step1 ,prune_sam_step2_global
-import torch_pruning as tp
-import copy
+from prune_funcs import calculate_iou, get_pos_init, del_pos_init, prune_sam_step2_global
 import json
 from pycocotools import mask as mask_utils
 import argparse
@@ -179,6 +172,13 @@ def train_model():
 
         model.image_encoder = torch.nn.DataParallel(model.image_encoder)
         model.image_encoder.train()
+
+        teacher_model.image_encoder = torch.nn.DataParallel(teacher_model.image_encoder)
+        teacher_model.image_encoder.eval()
+
+        pruned_model.image_encoder = torch.nn.DataParallel(pruned_model.image_encoder)
+        pruned_model.image_encoder.eval()
+
         optimizer = torch.optim.Adam(model.image_encoder.parameters(), lr=lr)
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'max',factor=0.5,patience=4,verbose=True)
 

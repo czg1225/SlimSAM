@@ -1,19 +1,12 @@
 import glob
 import os.path as osp
-from typing import Callable, Optional
-import numpy as np
-from PIL import Image
 from torch.utils.data import Dataset
 import torch
 import cv2
-from collections import defaultdict
-from torch.nn import functional as F
 import torch
 from segment_anything.utils.transforms import ResizeLongestSide
-from segment_anything import SamPredictor, sam_model_registry
-from segment_anything.modeling.sam import Sam
+from segment_anything import sam_model_registry
 from typing import Any, Dict, List, Tuple
-import json
 
 
 
