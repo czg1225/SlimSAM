@@ -10,8 +10,6 @@ from load_sam_json import SamDataset
 from torch.nn.functional import threshold, normalize
 from segment_anything_kd.utils.transforms import ResizeLongestSide
 from prune_funcs import calculate_iou, get_pos_init, del_pos_init, prune_sam_step1
-import torch_pruning as tp
-import copy
 import json
 from pycocotools import mask as mask_utils
 import argparse
