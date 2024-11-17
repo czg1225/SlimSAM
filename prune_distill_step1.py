@@ -133,9 +133,6 @@ def train_model():
         model.image_encoder = torch.nn.DataParallel(model.image_encoder)
         model.image_encoder.train()
 
-        teacher_model.image_encoder = torch.nn.DataParallel(teacher_model.image_encoder)
-        teacher_model.image_encoder.eval()
-
         optimizer = torch.optim.Adam(model.image_encoder.parameters(), lr=lr)
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'max',factor=0.5,patience=3,verbose=True)
 
@@ -144,6 +141,9 @@ def train_model():
 
         #Bottleneck Aligning
         for epoch in range(num_train_epochs):
+
+            teacher_model.image_encoder = torch.nn.DataParallel(teacher_model.image_encoder)
+            teacher_model.image_encoder.eval()
 
             torch.cuda.empty_cache()
             train_iter = iter(train_loader)
@@ -172,6 +172,7 @@ def train_model():
                 
                 #validation
                 if i == len(train_iter)-1:
+                    teacher_model.image_encoder = teacher_model.image_encoder.module
                     iou = 0
                     model.image_encoder.eval()
                     with torch.no_grad():
