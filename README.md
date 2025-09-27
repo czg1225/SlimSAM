@@ -286,12 +286,13 @@ If you use SlimSAM in your research, please use the following BibTeX entry. Than
 </summary>
 
 ```bibtex
-@inproceedings{fang2023depgraph,
-  title={Depgraph: Towards any structural pruning},
-  author={Fang, Gongfan and Ma, Xinyin and Song, Mingli and Mi, Michael Bi and Wang, Xinchao},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={16091--16101},
-  year={2023}
+@article{chen2024slimsam,
+  title={SlimSAM: 0.1\% data makes segment anything slim},
+  author={Chen, Zigeng and Fang, Gongfan and Ma, Xinyin and Wang, Xinchao},
+  journal={Advances in Neural Information Processing Systems},
+  volume={37},
+  pages={39434--39461},
+  year={2024}
 }
 ```
 </details>
